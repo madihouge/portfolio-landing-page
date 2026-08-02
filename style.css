@@ -50,18 +50,34 @@ body {
 }
 
 .frame {
+  position: relative;
   margin: clamp(18px, 3.2vw, 44px);
   min-height: calc(100vh - clamp(36px, 6.4vw, 88px));
   background-color: var(--cream);
-  background-image: linear-gradient(rgba(248, 242, 230, 0.52), rgba(248, 242, 230, 0.52)),
-    url("illustration-border.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: clamp(28px, 6vw, 64px);
+  overflow: hidden;
+}
+
+.corner-leaf {
+  position: absolute;
+  width: clamp(96px, 11vw, 160px);
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+}
+
+.corner-leaf.tl {
+  top: 0;
+  left: 0;
+}
+
+.corner-leaf.br {
+  bottom: 0;
+  right: 0;
+  transform: rotate(180deg);
 }
 
 .content {
@@ -175,7 +191,9 @@ h1 em {
   .frame {
     margin: 12px;
     min-height: calc(100vh - 24px);
-    background-image: linear-gradient(rgba(248, 242, 230, 0.78), rgba(248, 242, 230, 0.78)),
-      url("illustration-border.png");
+  }
+
+  .corner-leaf {
+    width: clamp(72px, 22vw, 110px);
   }
 }
